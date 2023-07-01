@@ -1,0 +1,63 @@
+/*
+Assessment Requirements
+1. Create a variable that can hold a number of NFT's. What type of variable might this be?
+2. Create an object inside your mintNFT function that will hold the metadata for your NFTs. 
+   The metadata values will be passed to the function as parameters. When the NFT is ready, 
+   you will store it in the variable you created in step 1
+3. Your listNFTs() function will print all of your NFTs metadata to the console (i.e. console.log("Name: " + someNFT.name))
+4. For good measure, getTotalSupply() should return the number of NFT's you have created
+*/
+
+// create a variable to hold your NFT's
+const NFTs = []
+
+// this function will take in some values as parameters, create an
+// NFT object using the parameters passed to it for its metadata, 
+// and store it in the variable above.
+function mintNFT (_jobClass, _weapon, _auraColor, _armorType, _innateElement, _race) {
+    const NFT = {
+	"jobClass": _jobClass,
+	"weapon": _weapon,
+	"auraColor": _auraColor,
+	"armorType": _armorType,
+	"innateElement": _innateElement,
+	"race": _race,
+    }
+    NFTs.push(NFT);
+    console.log("Minted: " + _jobClass);
+}
+
+// create a "loop" that will go through an "array" of NFT's
+// and print their metadata with console.log()
+function listNFTs () {
+ for(let i = 0; i < NFTs.length; i++) {
+    console.log("\nID \t\t\t\t► \t" + (i + 1));
+    console.log("\nJOB CLASS \t\t► \t" + NFTs[i].jobClass);
+    console.log("WEAPON \t\t\t► \t" + NFTs[i].weapon);
+    console.log("AURA COLOR \t\t► \t" + NFTs[i].auraColor);
+    console.log("ARMOR TYPE \t\t► \t" + NFTs[i].armorType); 
+    console.log("INNATE ELEMENT  ► \t" + NFTs[i].innateElement);
+    console.log("RACE \t\t\t► \t" + NFTs[i].race);
+ }
+}
+
+// print the total number of NFTs we have minted to the console
+function getTotalSupply() {
+ console.log("\n" + NFTs.length);
+}
+
+// call your functions below this line
+
+mintNFT("Knight", "Greatsword", "Red", "Full Plate Mail", "Fire Element", "Human");
+mintNFT("Blacksmith", "Forge Hammer", "Blue", "Hard Leather Armor", "Earth Element", "Dwarf");
+mintNFT("Hunter", "Bow and Arrow", "Green", "Leather Armor", "Wind Element", "Elf");
+mintNFT("Wizard", "Magic Wand", "Yellow", "Wizard Robe", "Water Element", "Human");
+mintNFT("Berserker", "Axe", "Brown", "Leather Armor", "Earth Element", "Giant");
+mintNFT("Gunner", "Pistols and Rifles", "Purple", "Leather Jacket", "Dark Element", "Human");
+mintNFT("Battle Priest", "Holy Staff", "White", "Holy Robe", "Light Element", "Human");
+mintNFT("Assassin", "Knife", "Maroon", "Leather Jacket", "Dark Element", "Dark Elf");
+mintNFT("Warrior", "Sharp and Blunt Weapons", "Orange", "Leather Armor", "Water Element", "Orc");
+mintNFT("Enchanter", "Arcane Ring", "Black", "Leather Jacket", "Dark Element", "Demon");
+listNFTs();
+getTotalSupply();
+
